@@ -1,6 +1,39 @@
-# Project
+# Angular 5 Basic Demo CRUD Application/Project for Beginners
+### Created By [Sangwin Gawande](http://imsangwin.com)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+
+## Feature list
+
+ * Admin Login & Logout
+ * User Listing
+ * User Searching
+ * User Details
+ * User Addition
+ * User Update
+ * User Deletion
+
+
+## Angular 4 features used
+
+ * Modules
+ * Routes
+ * Services
+ * Components
+ * Browser Animations
+ * Forms Module
+ * Reactive Forms
+ * Directives
+ * Pipes
+ * Filters
+ 
+
+## Libraries Used
+
+ * W3CSS front end design
+ * Font Awesome Icons
+ * Toster for success/error messages
+
 
 ## Development server
 
@@ -12,7 +45,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 ## Running unit tests
 
