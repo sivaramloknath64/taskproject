@@ -10,7 +10,7 @@ agent any
 stages {
 stage('Cloning our Git') {
 steps {
-git 'https://github.com/sivaramloknath64/Angular-5-Sample-Demo.git'
+git 'https://github.com/sivaramloknath64/taskproject.git'
 }
 }
 
