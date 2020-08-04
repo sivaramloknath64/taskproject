@@ -6,7 +6,7 @@ pipeline {
    stages {
        stage('Git-Checkout') {
          steps {
-            git 'https://github.com/sivaramloknath64/Angular-5-Sample-Demo.git'
+            git 'https://github.com/sivaramloknath64/taskproject.git'
          }
       }
 	   stage('npm install package'){
@@ -27,8 +27,8 @@ pipeline {
          steps {
             sh label: 'master', script: '''
             docker login -u sivaramloknath64 -p 8099558143
-            docker build -t sivaramloknath64/test .
-            docker push sivaramloknath64/test
+            docker build -t sivaramloknath64/testt .
+            docker push sivaramloknath64/testt
             '''
          }
       }    
