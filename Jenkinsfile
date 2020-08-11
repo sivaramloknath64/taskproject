@@ -1,37 +1,75 @@
-
 pipeline {
-   agent any
-   tools {nodejs "node"}
+  environment {
+    registry = "sivaramloknath64/taskproject"
+    registryCredential = 'docker_hub_loknath'
+    dockerImage = ''
+  }
+agent any
+  
+  tools {nodejs "node14"}
  
-   stages {
-       stage('Git-Checkout') {
-         steps {
-            git 'https://github.com/sivaramloknath64/taskproject.git'
-         }
-      }
-	   stage('npm install package'){
+stages {
+
+          stage('npm install package'){
                 steps{
-                    sh label: 'master', script: '''
-                         npm install
+                  echo "installing the npm package "
+                    sh 'npm install'
                          
-                     '''
+                     
                     }
             }
                 stage('Build'){
                     steps{
-                        sh 'npm run ng -- build --prod'  
+                      
+                        sh 'npm run build --prod'  
                     }
                 }
-                
-            stage('Build docker image and push to docker hub') {
-         steps {
-            sh label: 'master', script: '''
-            docker login -u sivaramloknath64 -p 8099558143
-            docker build -t sivaramloknath64/testt .
-            docker push sivaramloknath64/testt
-            '''
-         }
-      }    
-	  
+      
+   stage ('Build Docker Image') {
+      steps{
+        echo "Building Docker Image"
+   
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        }
+      
+      }
+    }
+
+
+   stage ('Push Docker Image') {
+      steps{
+        echo "Pushing Docker Image"
+        script {
+          docker.withRegistry( '', registryCredential ) {
+              dockerImage.push()
+              dockerImage.push('latest')
+          }
+        }
+      }
+    }
+  
+  
+    stage ('Deploy to dev Environment') {
+      steps{
+        echo "deploying to dev environment"
+        
+     sh "docker rm -f angulardemo || true"
+     sh " docker run -d --name=angulardemo -p 8082:8080 sivaramloknath64/taskproject"     
+              
+        
+        }
+      }
+  
+  
+  
+  
+  
+  
+   
+  
+  
+  
 }
 }
+
