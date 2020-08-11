@@ -4,7 +4,6 @@ FROM node:12.7-alpine as builder
 
 WORKDIR /usr/src/app
 COPY . ./
-COPY package.json package-lock.json ./
 RUN npm install
 RUN npm run ng build  --prod
 
