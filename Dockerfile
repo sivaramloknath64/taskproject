@@ -8,4 +8,4 @@ COPY . .
 RUN npm run build
 EXPOSE 8082
 # start app
-ENTRYPOINT ["npm", "start"]
+CMD ["npm", "start"]
