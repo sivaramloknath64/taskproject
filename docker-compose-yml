@@ -1,0 +1,13 @@
+version: "3.4"
+
+services:
+
+    taskproject:
+        build:
+          context: "taskproject/"
+        image: taskproject
+        env_file:
+          - "./taskproject/.env"
+        ports:
+          - 5000:3000
+    
