@@ -55,7 +55,7 @@ stages {
         echo "deploying to dev environment"
         
      sh "docker rm -f angulardemo || true"
-     sh " docker run -d --name=angulardemo -p 8083:8080 sivaramloknath64/taskproject"     
+     sh " docker run -d --name=angulardemo -p 8083:8082 sivaramloknath64/taskproject"     
               
         
         }
