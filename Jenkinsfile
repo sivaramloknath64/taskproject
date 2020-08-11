@@ -6,7 +6,7 @@ pipeline {
   }
 agent any
   
-  tools {nodejs "node14"}
+  tools {nodejs "node12"}
  
 stages {
 
