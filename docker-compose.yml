@@ -5,7 +5,7 @@ services:
     taskproject:
         build:
           context: "taskproject/"
-        image: taskproject
+        image: task
         env_file:
           - "./taskproject/.env"
         ports:
